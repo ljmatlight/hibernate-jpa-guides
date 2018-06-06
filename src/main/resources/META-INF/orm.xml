@@ -1,0 +1,3 @@
+<named-query name="UserEntity.findTop10ByLastname">
+    <query> select u.uid, u.firstName, u.lastName from userentity u where u.lastName = ?1 limit 1 </query>
+</named-query>

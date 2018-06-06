@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 
@@ -27,12 +29,15 @@ public class UserRepositoryTest {
     UserRepository repository;
 
     @Test
-    public void sampleTestCase() {
-        UserEntity dave = new UserEntity("Dave", "Matthews");
+    public void sampleTestCase() throws ParseException {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+        UserEntity dave = new UserEntity("Dave", "Matthews", 15, formatter.parse("2010-04-28"));
         dave = repository.save(dave);
         System.out.println("dave === " + dave);
 
-        UserEntity carter = new UserEntity("test", "test");
+        UserEntity carter = new UserEntity("Carter", "Beauford", 20, formatter.parse("2015-04-28"));
         carter = repository.save(carter);
         System.out.println("carter === " + carter);
 

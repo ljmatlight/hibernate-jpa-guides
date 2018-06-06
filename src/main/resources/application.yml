@@ -29,6 +29,10 @@ spring:
 #            drop-table-allow: false
 #        log4j2:
 #          enabled: true
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+##    show-sql: true
   jpa:
     hibernate:
       ddl-auto: update
@@ -37,3 +41,13 @@ spring:
 server:
   port: 8888
   context-path: /
+
+debug: true
+logging:
+  level:
+    com.github.ljmatlight: trace
+    org.hibernate.SQL: trace
+    org.springframework.boot: debug
+    org.hibernate.tool.hbm2ddl: trace
+    org.hibernate.engine.query.spi.HQLQueryPlan: trace
+    org.hibernate.engine.spi.QueryParameters: trace
